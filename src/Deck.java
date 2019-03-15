@@ -54,7 +54,6 @@ public class Deck {
             return hand;
         }
     }
-
     public void shuffle() {
         if (cards.size() < MAX_SIZE)
             return;

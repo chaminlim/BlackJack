@@ -32,7 +32,6 @@ public class Card implements Comparable {
     }
 
     public int getRank() {
-
         return rank;
     }
 

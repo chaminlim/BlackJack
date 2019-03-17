@@ -24,6 +24,8 @@ public class BlackJack {
     public void run() {
         Scanner scan = new Scanner(System.in);
         Deck deck = new Deck();
+        deck.shuffle();
+        System.out.println("Let's start a game!");
 
         //When the BlackJack is finished, it sets isGameFinished to true.
         isGameFinished = false; //set as false because I am using it for testing

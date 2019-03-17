@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Game {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter you name...");
+        System.out.println("Please enter you name.!.");
         String playerName = scanner.nextLine();
         System.out.println("Hello, Welcome to BlackJack, " + playerName + "!");
 

@@ -173,6 +173,8 @@ public class BlackJack {
     private void playerStand() {
         dealerHit();
         dealStand();
+        checkBust(calcHandTotal(player));
+
     }
 
     private void dealerHit() {
@@ -183,4 +185,19 @@ public class BlackJack {
 
     }
 
+    public static boolean checkBust(int handtotal) {
+        if (handtotal > 21) {
+            System.out.println("You have busted!");
+            return true;
+        }
+        return false;
+    }
+
+    private int calcHandTotal(ArrayList<Card> hand) {
+        int total = 0;
+        for (int i = 0; i < hand.size(); i++) {
+            total += hand.get(i).getRank();
+        }
+        return total;
+    }
 }

@@ -28,5 +28,10 @@ public class TestDeck {
         System.out.println("Player 1's cards: ");
         for (Card card : player1)
             System.out.println(card);
+
+        player1.add(deck.deal());
+        System.out.println("After the deal one card");
+        for (Card card : player1)
+            System.out.println(card);
     }
 }

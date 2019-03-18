@@ -1,6 +1,5 @@
 //Name: Chamin Lim and Tony Jiang, Date: 2019-03-16, Period: 2
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
@@ -24,7 +23,7 @@ public class Game {
                 if (playMoney == 500 || playMoney == 1000 || playMoney == 2000)
                     wrongInput = false;
             } catch (NumberFormatException e) {
-                System.err.println("Entered value is not an integer.");
+                System.err.println("Wrong Input.");
             }
         }
 

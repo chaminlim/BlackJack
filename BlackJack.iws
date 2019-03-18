@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a56cf17-5f02-490d-9f41-a8a54fcd748f" name="Default Changelist" comment="Edited Exception message.">
+    <list default="true" id="3a56cf17-5f02-490d-9f41-a8a54fcd748f" name="Default Changelist" comment="Created multiple methods for BlackJack class for user's game play.">
       <change beforePath="$PROJECT_DIR$/BlackJack.iws" beforeDir="false" afterPath="$PROJECT_DIR$/BlackJack.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlackJack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestDeck.java" afterDir="false" />
     </list>
     <list id="6b40d610-10de-4257-bcbf-b5f327b9476a" name="Edited Exception message." comment="">
       <change beforePath="$PROJECT_DIR$/src/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlackJack.java" afterDir="false" />
@@ -33,14 +31,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BlackJack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1197">
-              <caret line="57" column="116" selection-start-line="57" selection-start-column="116" selection-end-line="57" selection-end-column="116" />
+            <state relative-caret-position="903">
+              <caret line="43" column="33" lean-forward="true" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#334#340#0" expanded="true" />
                 <element signature="e#340#346#0" expanded="true" />
-                <element signature="e#2654#2655#0" expanded="true" />
-                <element signature="e#3470#3471#0" expanded="true" />
+                <element signature="e#2638#2639#0" expanded="true" />
+                <element signature="e#3454#3455#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestDeck.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+            <state relative-caret-position="377">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="e#318#324#0" expanded="true" />
               </folding>
@@ -115,26 +113,6 @@
         <option value="$PROJECT_DIR$/src/BlackJack.java" />
       </list>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/BlackJack.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="6b40d610-10de-4257-bcbf-b5f327b9476a" />
-        <range start1="5" end1="7" start2="6" end2="7" changelist="6b40d610-10de-4257-bcbf-b5f327b9476a" />
-        <range start1="8" end1="9" start2="8" end2="12" changelist="6b40d610-10de-4257-bcbf-b5f327b9476a" />
-        <range start1="12" end1="13" start2="15" end2="17" changelist="3a56cf17-5f02-490d-9f41-a8a54fcd748f" />
-        <range start1="25" end1="25" start2="29" end2="30" changelist="3a56cf17-5f02-490d-9f41-a8a54fcd748f" />
-        <range start1="27" end1="29" start2="32" end2="35" changelist="6b40d610-10de-4257-bcbf-b5f327b9476a" />
-        <range start1="30" end1="34" start2="36" end2="44" changelist="6b40d610-10de-4257-bcbf-b5f327b9476a" />
-        <range start1="35" end1="35" start2="45" end2="66" changelist="6b40d610-10de-4257-bcbf-b5f327b9476a" />
-        <range start1="36" end1="38" start2="67" end2="73" changelist="6b40d610-10de-4257-bcbf-b5f327b9476a" />
-        <range start1="42" end1="42" start2="77" end2="78" changelist="6b40d610-10de-4257-bcbf-b5f327b9476a" />
-        <range start1="45" end1="46" start2="81" end2="82" changelist="3a56cf17-5f02-490d-9f41-a8a54fcd748f" />
-        <range start1="51" end1="52" start2="87" end2="88" changelist="3a56cf17-5f02-490d-9f41-a8a54fcd748f" />
-        <range start1="56" end1="57" start2="92" end2="94" changelist="3a56cf17-5f02-490d-9f41-a8a54fcd748f" />
-        <range start1="66" end1="66" start2="103" end2="179" changelist="6b40d610-10de-4257-bcbf-b5f327b9476a" />
-      </ranges>
-    </file>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -174,7 +152,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="TODO_SCOPE" value="All Places" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552878296341" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552878565265" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -192,7 +170,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestDeck">
+  <component name="RunManager" selected="Application.Game">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="BlackJack" />
@@ -229,8 +207,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestDeck" />
         <item itemvalue="Application.Game" />
+        <item itemvalue="Application.TestDeck" />
         <item itemvalue="Application.TestCard" />
         <item itemvalue="Application.TestSuit" />
       </list>
@@ -311,7 +289,21 @@
       <option name="project" value="LOCAL" />
       <updated>1552871438346</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="just for testing">
+      <created>1552878289356</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1552878289356</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Created multiple methods for BlackJack class for user's game play.">
+      <created>1552878357693</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1552878357693</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -427,7 +419,9 @@
     <MESSAGE value="Edited Welcome message and added user input request loop." />
     <MESSAGE value="Created gameDelay() method which shows loading animation, and implemented it in run() method." />
     <MESSAGE value="Edited Exception message." />
-    <option name="LAST_COMMIT_MESSAGE" value="Edited Exception message." />
+    <MESSAGE value="just for testing" />
+    <MESSAGE value="Created multiple methods for BlackJack class for user's game play." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created multiple methods for BlackJack class for user's game play." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -498,16 +492,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestDeck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-          <folding>
-            <element signature="e#318#324#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="537">
@@ -523,16 +507,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestDeck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#318#324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/BlackJack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="57" column="116" selection-start-line="57" selection-start-column="116" selection-end-line="57" selection-end-column="116" />
+        <state relative-caret-position="903">
+          <caret line="43" column="33" lean-forward="true" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#334#340#0" expanded="true" />
             <element signature="e#340#346#0" expanded="true" />
-            <element signature="e#2654#2655#0" expanded="true" />
-            <element signature="e#3470#3471#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#3454#3455#0" expanded="true" />
           </folding>
         </state>
       </provider>

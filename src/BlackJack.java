@@ -10,7 +10,8 @@ public class BlackJack {
 
     /**
      * Constructor for BlackJack
-     * @param name gets player's name from Game.java
+     * @param name Player's name
+     * @param money PLayer's money
      */
     public BlackJack(String name, int money) {
         playerName = name;
@@ -23,6 +24,7 @@ public class BlackJack {
      * Main codes for our BlackJack
      */
     public void run() throws Exception {
+        boolean isOneGameOver = false;
         gameDelay();
         System.out.println("Let's start a game!");
 
@@ -43,18 +45,19 @@ public class BlackJack {
      * @return isGameFinished
      */
     public boolean isFinished() {
-        return isGameFinished;
+        return isBlackJackFinished;
     }
 
     /**
      * Method that shows loading animation
      *
-     * @throws Exception Exception for System.out.write()
+     * @throws Exception for System.out.write()
      */
     private void gameDelay() throws Exception {
         try {
             String anim = "|/-\\";
-            for (int x = 0; x < 27; x++) {
+            //Change 1 to 27.
+            for (int x = 0; x < 1; x++) {
                 String data = "\r" + anim.charAt(x % anim.length());
                 System.out.write(data.getBytes());
                 Thread.sleep(100);

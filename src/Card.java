@@ -59,12 +59,16 @@ public class Card implements Comparable {
     private String rankToString() {
         if (rank == 1)
             return "Ace";
-        else if (rank == 11)
+        else if (rank == 11) {
+            rank = 10;
             return "Jack";
-        else if (rank == 12)
+        } else if (rank == 12) {
+            rank = 10;
             return "Queen";
-        else if (rank == 13)
+        } else if (rank == 13) {
+            rank = 10;
             return "King";
+        }
         else
             return "" + rank;
     }

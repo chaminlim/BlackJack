@@ -25,8 +25,9 @@ public class Deck {
 
     //Helper method to add 13 cards from a single suit
     private void addSuit(Suit suit) {
-        for (int i = 1; i <= 13; i++)
+        for (int i = 1; i <= 13; i++) {
             cards.add(new Card(suit, i));
+        }
     }
 
     public boolean isEmpty() {
@@ -54,6 +55,7 @@ public class Deck {
             return hand;
         }
     }
+
     public void shuffle() {
         if (cards.size() < MAX_SIZE)
             return;

@@ -13,8 +13,9 @@
       
       //Display "Queen of spades"
          System.out.println(queenSpades);
-      //Display true
-         System.out.println(twoDiamonds.equals(twoHearts));
-          System.out.println(jackClubs.compareTo(queenSpades));
+          System.out.println(queenSpades.getRank());
+//      //Display true
+//         System.out.println(twoDiamonds.equals(twoHearts));
+//          System.out.println(jackClubs.compareTo(queenSpades));
       }
    }

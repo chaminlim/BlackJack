@@ -4,82 +4,97 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BlackJack {
-    private boolean isBlackJackFinished = false;
+    private Scanner scan = new Scanner(System.in);
     private String playerName;
-    private int playMoney, move;
-    private int betMoney = 0;
+    private int move = 0;
+    private Deck deck = new Deck();
     ArrayList<Card> player = new ArrayList<Card>();
     ArrayList<Card> dealer = new ArrayList<Card>();
 
     /**
      * Constructor for BlackJack
+     *
      * @param name Player's name
-     * @param money PLayer's money
      */
-    public BlackJack(String name, int money) {
+    public BlackJack(String name) {
         playerName = name;
-        playMoney = money;
     }
-
-    // TODO: 2019-03-16 Need to work on run() method, this is where main game code will be.
 
     /**
      * Main codes for our BlackJack
      */
     public void run() throws Exception {
-        boolean isOneGameOver = false;
         gameDelay();
         System.out.println("Let's start a game!");
-        while (playMoney > 0) {
-            while (!isOneGameOver) {
-                Scanner scan = new Scanner(System.in);
 
-                System.out.println("Dealer is shuffling the deck.");
+        System.out.println("Dealer is shuffling the deck.");
+        gameDelay();
+        deck.shuffle();
+        System.out.println("Deck is shuffled.");
+
+        player = deck.deal(2);
+        dealer = deck.deal(2);
+        System.out.print("Dealer: \t\t| ");
+        System.out.print(dealer.get(0).toString() + " | ");
+        System.out.print("HIDDEN CARD | ");
+        System.out.print("\n" + playerName + ": \t\t| ");
+        for (Card card : player) {
+            System.out.print(card.toString() + " | ");
+        }
+
+        int playerTotal = 0;
+        int dealerTotal = 0;
+        move = moveRequestLoop();
+
+        while (move != 2) {
+            if (move == 1) {
                 gameDelay();
-                Deck deck = new Deck();
-                deck.shuffle();
-                System.out.println("Deck is shuffled.");
-
-                playerStatus();
-                betRequestLoop();
-
-                player = deck.deal(2);
-                dealer = deck.deal(2);
-                System.out.print("Dealer: \t\t| ");
-                System.out.print(dealer.get(0).toString() + " | ");
-                System.out.print("HIDDEN CARD | ");
-                System.out.print("\n" + playerName + ": \t\t| ");
-                for (Card card : player) {
-                    System.out.print(card + " | ");
+                playerHit();
+                showPlayerCards();
+                if (calcHandTotal(player) == 21) {
+                    System.out.println("You have blackjack! You have won against the dealer!");
+//                    isBlackJackFinished = true;
+                    break;
+                } else if (calcHandTotal(player) > 21) {
+                    System.out.println("You are busted! You lost...");
+//                    isBlackJackFinished = true;
+                    break;
                 }
-
-                moveRequestLoop();
-
-                // TODO: 2019-03-17 Need to work on switch statement for user's play, 1 means hit and 2 means stand
-                switch (move) {
-                    case 1:
-                        playerHit();
-                    case 2:
-                        playerStand();
-                    default:
-                        System.err.println("Wrong Move.");
-                }
-
-                //When the BlackJack is finished, it sets isGameFinished to true.
-                playMoney = 0;
-                isOneGameOver = true;
-                isBlackJackFinished = true; //set as false because I am using it for testing
+                move = moveRequestLoop();
             }
         }
-    }
+        if (move == 2) {
+            gameDelay();
+            if (calcHandTotal(dealer) == 21) {
+                System.out.println("Dealer has blackjack! You lost...");
+            }
+            do {
+                dealerHit();
+            } while (calcHandTotal(dealer) < 16);
+            if (calcHandTotal(dealer) > 21) {
+                System.out.println("Dealer is busted... You won against the dealer!");
+            }
+            if (calcHandTotal(dealer) == 21) {
+                System.out.println("Dealer has blackjack! You lost...");
+            }
+            showAllCards();
+            playerTotal += calcHandTotal(player);
+            dealerTotal += calcHandTotal(dealer);
+        } else
+            System.out.println("Wrong move.");
 
-    /**
-     * Tells whether the game is finished or not
-     *
-     * @return isGameFinished
-     */
-    public boolean isFinished() {
-        return isBlackJackFinished;
+        gameDelay();
+        System.out.println("Player's Card Total: " + playerTotal + " Dealer's Card Total: " + dealerTotal);
+
+        if (playerTotal > dealerTotal) {
+            System.out.println("You have won against the dealer!");
+        }
+        if (playerTotal == dealerTotal) {
+            System.out.println("Draw!");
+        }
+        if (playerTotal < dealerTotal) {
+            System.out.println("You lost... Better luck next time!");
+        }
     }
 
     /**
@@ -91,7 +106,7 @@ public class BlackJack {
         try {
             String anim = "|/-\\";
             //Change 1 to 27.
-            for (int x = 0; x < 1; x++) {
+            for (int x = 0; x < 27; x++) {
                 String data = "\r" + anim.charAt(x % anim.length());
                 System.out.write(data.getBytes());
                 Thread.sleep(100);
@@ -103,48 +118,16 @@ public class BlackJack {
     }
 
     /**
-     * Method that prints out player's status: name and money
-     */
-    private void playerStatus() {
-        System.out.println("You(" + playerName + ") have $" + playMoney + ".");
-    }
-
-    /**
-     * Request loop for betting, checks whether user inputted correct value
-     *
-     * @throws Exception for gameDelay()
-     */
-    private void betRequestLoop() throws Exception {
-        Scanner scan = new Scanner(System.in);
-        boolean wrongInput = true;
-        while (wrongInput) {
-            System.out.println("Dealer: \"How much do you want to bet?\" (Maximum bet: $" + playMoney + ")");
-            try {
-                String temp = scan.nextLine();
-                betMoney = Integer.parseInt(temp);
-                if (betMoney <= playMoney && betMoney > 0) {
-                    wrongInput = false;
-                    playMoney -= betMoney;
-                }
-            } catch (NumberFormatException e) {
-                System.err.println("Wrong Input.");
-            }
-        }
-        gameDelay();
-        System.out.println("You have bet $" + betMoney + ".");
-    }
-
-    /**
      * Similar as betRequestLoop but for moves, checks whether user inputted correct value
      *
      * @throws Exception for gameDelay()
      */
-    private void moveRequestLoop() throws Exception {
+    private int moveRequestLoop() throws Exception {
         Scanner scan = new Scanner(System.in);
         move = 0;
         boolean wrongInput = true;
         while (wrongInput) {
-            System.out.println("Dealer: \"What would you like to do?\"\n** Hit (1) ** Stand (2) **");
+            System.out.println("\nDealer: \"What would you like to do?\"\n** Hit (1) ** Stand (2) **");
             try {
                 String temp = scan.nextLine();
                 int tempMove = Integer.parseInt(temp);
@@ -159,38 +142,21 @@ public class BlackJack {
         gameDelay();
         if (move == 1) {
             System.out.println("You have selected 'Hit (1)'");
+            return move;
         }
         if (move == 2) {
             System.out.println("You have selected 'Stand (2)'");
+            return move;
         }
+        return 0;
     }
 
-    // TODO: 2019-03-17 Need to work these 4 methods.
     private void playerHit() {
-
-    }
-
-    private void playerStand() {
-        dealerHit();
-        dealStand();
-        checkBust(calcHandTotal(player));
-
+        player.add(deck.deal());
     }
 
     private void dealerHit() {
-
-    }
-
-    private void dealStand() {
-
-    }
-
-    public static boolean checkBust(int handtotal) {
-        if (handtotal > 21) {
-            System.out.println("You have busted!");
-            return true;
-        }
-        return false;
+        dealer.add(deck.deal());
     }
 
     private int calcHandTotal(ArrayList<Card> hand) {
@@ -199,5 +165,34 @@ public class BlackJack {
             total += hand.get(i).getRank();
         }
         return total;
+    }
+
+    /**
+     * Method that shows only player's cards.
+     */
+    private void showPlayerCards() {
+        System.out.print("Dealer: \t\t| ");
+        System.out.print(dealer.get(0).toString() + " | ");
+        System.out.print("HIDDEN CARD | ");
+        System.out.print("\n" + playerName + ": \t\t| ");
+        for (Card card : player) {
+            System.out.print(card.toString() + " | ");
+        }
+        System.out.println();
+    }
+
+    /**
+     * Method that shows both player's and dealer's cards.
+     */
+    private void showAllCards() {
+        System.out.print("Dealer: \t\t| ");
+        for (Card card : dealer) {
+            System.out.print(card.toString() + " | ");
+        }
+        System.out.print("\n" + playerName + ": \t\t| ");
+        for (Card card : player) {
+            System.out.print(card.toString() + " | ");
+        }
+        System.out.println();
     }
 }

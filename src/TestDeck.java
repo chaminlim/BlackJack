@@ -24,6 +24,7 @@ public class TestDeck {
 			*/
 
         player1 = deck.deal(5);
+        player1.add(new Card(Suit.club, 10));
 
         System.out.println("Player 1's cards: ");
         for (Card card : player1)
